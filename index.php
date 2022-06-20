@@ -2,10 +2,13 @@
 require_once __DIR__ .'/class/customer/Customer.php';
 require_once __DIR__ .'/class/customer/Registered.php';
 
-$customer1 = new Customer("Vasco","Bianchi","vaschissimo@gmail.com",['crocchette cane S','cuccia cane S']);
-$user1 = new Registered("Paolo","Menegazzi","paolone@gmail.com",['crocchette gatto','cuscino gatto']);
+ require_once __DIR__ .'/class/db/items.php';
+
+$customer1 = new Customer("Vasco","Bianchi","vaschissimo@gmail.com",['crocchette cane S','cuccia cane S'],'123456789','22/05/01');
+$user1 = new Registered("Paolo","Menegazzi","paolone@gmail.com",['crocchette gatto','cuscino gatto'],'123456789','22/05/01');
 $user1->setDiscount(20);
 var_dump($user1);
+
 ?>
 
 <!DOCTYPE html>
