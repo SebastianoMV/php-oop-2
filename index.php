@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__ .'/class/customer/Customer.php';
+require_once __DIR__ .'/class/customer/Registered.php';
+
+$customer1 = new Customer("Vasco","Bianchi","vaschissimo@gmail.com",['crocchette cane S','cuccia cane S']);
+$user1 = new Registered("Paolo","Menegazzi","paolone@gmail.com",['crocchette gatto','cuscino gatto']);
+$user1->setDiscount(20);
+var_dump($user1);
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +23,8 @@ require_once __DIR__ .'/class/customer/Customer.php';
   </head>
 
   <main>
-    <?php echo $customer1->name; ?>
+    <?php echo $user1->getDiscount(); ?>
+
     
   </main>
 
