@@ -1,39 +1,35 @@
 <?php
 
+require_once __DIR__ .'/CC.php';
+
+
 class Customer{
 
   public $name;
   public $surname;
   public $email;
   public $cart;
-  private $creditCard;
-  private $dateCC;
+  private $card;
+  
 
 
-  public function __construct($_name,$_surname,$_email,$_cart,$_creditCard,$_dateCC){
+  public function __construct($_name,$_surname,$_email,$_cart){
     $this->name = $_name;
     $this->surname = $_surname;
     $this->email = $_email;
     $this->cart = $_cart;
-    $this->creditCard = $_creditCard;
-    $this->dateCC = $_dateCC;
   }
 
-  public function setcreditCard($_creditCard){
-    $this->creditCard = $_creditCard;
+
+  public function setCC($_number, $_dateY, $_dateM, $_name, $_cvv){
+    try{
+      $this->card = new CC($_number, $_dateY, $_dateM, $_name, $_cvv);
+    }catch (Exception $e){
+      echo $e->getMessage();
+    }
+
   }
-
-  public function setdateCC($_dateCC){
-    $this->dateCC = $_dateCC;
-  }
-
-  public function getcreditCard(){
-		return $this->creditCard;
-	}
-
-  public function getdateCC(){
-		return $this->dateCC;
-	}
+  
 }
 
 ?>
